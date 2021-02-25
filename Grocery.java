@@ -39,19 +39,11 @@ class Grocery{
             case 4:
                 if(list.getLength() == 0){
                     System.out.println("Your List is Empty");
-                    System.out.println("~Press e to exit~");
-                    String exit = s.nextLine();
-                    if(exit.equals("e")){
-                        menu(list);
-                    }
+                    exitMessage(list);
                 }
                 else{
                     displayList(list);
-                    System.out.println("~Press e to exit~");
-                    String exit = s.nextLine();
-                    if(exit.equals("e")){
-                        menu(list);
-                    }
+                    exitMessage(list);
                 }
                 break;
             default:
@@ -94,6 +86,16 @@ class Grocery{
             for(int i = 0; i < list.getLength(); i++){
                 System.out.println(list.getItem(i));
             }
+    }
+
+    public static void exitMessage(List list){
+        Scanner s = new Scanner(System.in);
+
+        String exit = "e";
+        System.out.println("~Press e to exit");
+        if(s.nextLine().equals(exit)){
+            menu(list);
         }
+    }
 
 }
