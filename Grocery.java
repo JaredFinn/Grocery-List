@@ -3,10 +3,12 @@ import java.util.Scanner;
 
 class Grocery{
     public static void main(String[] args){
-        createList();
+        
+        List myList = new List();
+        createList(myList);
     }
 
-    public static void createList(){
+    public static void createList(List list){
 
         Scanner s = new Scanner(System.in);
 
@@ -14,14 +16,24 @@ class Grocery{
 
         boolean end = false;
         String input;
-        List myList = new List();
         while(!end){
             input = s.nextLine();
             if(input.equals("done")){
                 end = true;
             }
             else{
-                myList.addItem(input);
+                list.addItem(input);
+            }
+        }
+        displayList(list);
+    }
+
+    public static void displayList(List list){
+        Scanner s = new Scanner(System.in);
+        System.out.println("Display List Y/N");
+        if(s.nextLine().equals("y")){
+            for(int i = 0; i < list.getLength(); i++){
+                System.out.println(list.getItem(i));
             }
         }
     }

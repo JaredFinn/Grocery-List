@@ -12,7 +12,10 @@ public class List {
         groceryList.add(input);
     }
 
-    public void getItem(){
-        //empty
+    public String getItem(int index){
+        return groceryList.get(index);
+    }
+    public int getLength(){
+        return groceryList.size();
     }
 }
