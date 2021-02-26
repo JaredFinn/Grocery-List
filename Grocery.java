@@ -1,8 +1,7 @@
 import java.util.Scanner;
-
-
-
 class Grocery{
+
+    private static Scanner s = new Scanner(System.in);
     public static void main(String[] args){
         List myList = new List();
         menu(myList);
@@ -10,7 +9,6 @@ class Grocery{
     }
 
     public static void menu(List list) {
-        Scanner s = new Scanner(System.in);
 
         System.out.println("Welcome to your grocery List!");
         System.out.println("Choose between (1)Create List, (2)Add to List, (3)Delete list item, (4)Display List");
@@ -58,8 +56,6 @@ class Grocery{
     //to list by deciding if it is a new list or existing. Didnt need redundant code
     public static void createList(List list){
 
-        Scanner s = new Scanner(System.in);
-
         if(list.getLength() == 0){
             System.out.println("Create Your List Here");
             System.out.println("Enter an item and press enter:");
@@ -83,8 +79,8 @@ class Grocery{
         menu(list);
     }
 
+    //deletes an item of user choice 
     public static void deleteItem(List list){
-        Scanner s = new Scanner(System.in);
         int input;
         
         System.out.println("Choose the option you would like to delete:");
@@ -94,10 +90,7 @@ class Grocery{
         input = s.nextInt();
         list.deleteItem(input);
         System.out.println("Item has been deleted.");
-
-        exitMessage(list);
-        
-        
+        exitMessage(list);   
     }
 
     //Gives option to display list
@@ -106,9 +99,8 @@ class Grocery{
             System.out.println(list.getItem(i));
         }
     }
-
+    //auto-exit message with "e" key functionality
     public static void exitMessage(List list){
-        Scanner s = new Scanner(System.in);
 
         String exit = "e";
         System.out.println("~Press e to exit~");
@@ -116,5 +108,4 @@ class Grocery{
             menu(list);
         }
     }
-
 }
