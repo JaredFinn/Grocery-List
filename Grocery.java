@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-import javax.lang.model.util.ElementScanner14;
 
 
 class Grocery{
@@ -34,6 +33,9 @@ class Grocery{
                 if(list.getLength() == 0){
                     System.out.println("Error: No list was created or your list is empty, you will be re-routed to Create List");
                     createList(list);
+                }
+                else{
+                    deleteItem(list);
                 }
                 break;
             case 4:
@@ -81,18 +83,35 @@ class Grocery{
         menu(list);
     }
 
+    public static void deleteItem(List list){
+        Scanner s = new Scanner(System.in);
+        int input;
+        
+        System.out.println("Choose the option you would like to delete:");
+        for(int i = 0; i < list.getLength(); i++){
+            System.out.println("(" + (i + 1) + ")" + list.getItem(i));
+        }
+        input = s.nextInt();
+        list.deleteItem(input);
+        System.out.println("Item has been deleted.");
+
+        exitMessage(list);
+        
+        
+    }
+
     //Gives option to display list
     public static void displayList(List list){
-            for(int i = 0; i < list.getLength(); i++){
-                System.out.println(list.getItem(i));
-            }
+        for(int i = 0; i < list.getLength(); i++){
+            System.out.println(list.getItem(i));
+        }
     }
 
     public static void exitMessage(List list){
         Scanner s = new Scanner(System.in);
 
         String exit = "e";
-        System.out.println("~Press e to exit");
+        System.out.println("~Press e to exit~");
         if(s.nextLine().equals(exit)){
             menu(list);
         }

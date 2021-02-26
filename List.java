@@ -18,4 +18,9 @@ public class List {
     public int getLength(){
         return groceryList.size();
     }
+
+    public void deleteItem(int index){
+        //index-1 to account for the display starting at 1, better than 0.
+        groceryList.remove(index-1);
+    }
 }
